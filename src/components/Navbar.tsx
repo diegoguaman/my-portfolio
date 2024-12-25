@@ -1,26 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-scroll";
 
-const Navbar: React.FC = () => {
+const Header: React.FC = () => {
   return (
-    <nav className="bg-blue-500 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-white font-bold text-xl">My Portfolio</h1>
-        <ul className="flex space-x-4">
-          <li>
-            <Link to="/" className="text-white hover:text-gray-300">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/projects" className="text-white hover:text-gray-300">
-              Projects
-            </Link>
-          </li>
-        </ul>
+    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div className="max-w-5xl mx-auto px-4">
+        <nav className="container mx-auto flex justify-between items-center p-4">
+          <h1 className="text-2xl font-bold">Mi Portafolio</h1>
+          <ul className="flex gap-4">
+            <li>
+              <Link
+                to="about"
+                smooth={true}
+                duration={500}
+                className="hover:text-blue-500 cursor-pointer"
+              >
+                Sobre mí
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="skills"
+                smooth={true}
+                duration={500}
+                className="hover:text-blue-500 cursor-pointer"
+              >
+                Habilidades
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="projects"
+                smooth={true}
+                duration={500}
+                className="hover:text-blue-500 cursor-pointer"
+              >
+                Proyectos
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                className="hover:text-blue-500 cursor-pointer"
+              >
+                Contacto
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
