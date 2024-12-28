@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
+import useActiveSection from "../hooks/useActiveSection";
 
 const Header: React.FC = () => {
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+  const sectionIds = ["about", "skills", "projects", "contact"];
+  const activeSection = useActiveSection(sectionIds, isScrolledPastHero);
+  const hoverClass = "hover:text-hover cursor-pointer";
 
   useEffect(() => {
     const heroSection = document.getElementById("hero");
@@ -26,10 +30,10 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 w-full bg-white shadow-md z-50 ${
         isScrolledPastHero
-          ? "bg-primary shadow-lg text-white"
+          ? "bg-back shadow-lg text-white"
           : "bg-white shadow-md text-black"
       }`}
-      style={isScrolledPastHero ? { backgroundColor: "#7B9EA4" } : undefined}
+      //style={isScrolledPastHero ? { backgroundColor: "#7B9EA4" } : undefined}
     >
       <div className="max-w-5xl mx-auto px-4">
         <nav className="container mx-auto flex justify-between items-center p-4 text-xs">
@@ -37,51 +41,25 @@ const Header: React.FC = () => {
             to="hero"
             smooth={true}
             duration={500}
-            className="hover:text-blue-500 cursor-pointer"
+            className={hoverClass}
           >
             MY PORTFOLIO
           </Link>
           <ul className="flex gap-4">
-            <li>
-              <Link
-                to="about"
-                smooth={true}
-                duration={500}
-                className="hover:text-blue-500 cursor-pointer"
-              >
-                ABOUT ME
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="skills"
-                smooth={true}
-                duration={500}
-                className="hover:text-blue-500 cursor-pointer"
-              >
-                SKILLS
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="projects"
-                smooth={true}
-                duration={500}
-                className="hover:text-blue-500 cursor-pointer"
-              >
-                PROYECTS
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="contact"
-                smooth={true}
-                duration={500}
-                className="hover:text-blue-500 cursor-pointer"
-              >
-                CONTACT
-              </Link>
-            </li>
+          {sectionIds.map((id) => (
+              <li key={id}>
+                <Link
+                  to={id}
+                  smooth={true}
+                  duration={500}
+                  className={`${hoverClass} ${
+                    activeSection === id ? "text-hover" : ""
+                  }`}
+                >
+                  {id.toUpperCase()}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

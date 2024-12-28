@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#5C7A84',
+        'back': '#5C7A84',
+        'hover': '#99c8d8',
       },
       fontFamily: {
         title: ["Roboto Mono", "serif"],
