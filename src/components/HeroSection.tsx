@@ -51,9 +51,9 @@ const HeroSection: React.FC = () => {
         <div className="flex items-center mt-4">
           <span className={textClass}>Specialized in</span>
           <motion.div
-            className="ml-2 overflow-hidden relative h-8 flex items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            className="ml-2 overflow-hidden h-8 flex items-center"
+            initial={{ y: "20%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
             <RoleSlider roles={roles} />
@@ -104,6 +104,7 @@ const RoleSlider: React.FC<RoleSliderProps> = ({ roles }) => {
           animate="center"
           exit="exit"
           transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute"
         >
           <p className="text-3xl font-bold font-body">{roles[index]}</p>
         </motion.div>
