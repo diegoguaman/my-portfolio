@@ -28,7 +28,7 @@ const Header: React.FC = () => {
   }, []);
   return (
     <header
-      className={`fixed top-0 left-0 w-full bg-white shadow-md z-50 ${
+      className={`fixed top-0 left-0 w-full shadow-md z-50 ${
         isScrolledPastHero
           ? "bg-back shadow-lg text-white"
           : "bg-white shadow-md text-black"
