@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ScrollButton from "./ScrollButton";
 
 const roles = ["React", "Node", "Tailwind"];
 const textClass = "text-3xl font-light font-body tracking-widest";
@@ -58,6 +59,10 @@ const HeroSection: React.FC = () => {
           >
             <RoleSlider roles={roles} />
           </motion.div>
+        </div>
+        {/* Botón debajo del texto */}
+        <div className="mt-14 h-16">
+          <ScrollButton targetSection="about" />
         </div>
       </div>
     </section>
