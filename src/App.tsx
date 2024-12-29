@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Navbar";
 import Section from "./components/Section";
 import HeroSection from "./components/HeroSection";
+import BackToUpButton from "./components/BackToUpButton";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         title="Habilidades"
         content="Contenido de la sección 'Habilidades'"
       />
+      <BackToUpButton />
       <Section
         id="projects"
         title="Proyectos"
