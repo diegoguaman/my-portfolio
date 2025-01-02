@@ -3,23 +3,21 @@ import { motion } from "framer-motion";
 
 interface SectionProps {
   id: string;
-  title: string;
-  content: string;
   bgColor?: string;
+  children: React.ReactNode; // Usamos children para contenido dinámico
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, content, bgColor }) => {
+const Section: React.FC<SectionProps> = ({ id, bgColor, children }) => {
   return (
     <motion.section
       id={id}
-      className={`h-screen flex items-center justify-center ${bgColor || "bg-gray-300"}`}
+      className={`h-96 flex items-center justify-center ${bgColor || "bg-gray-300"}`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="text-center">
-        <h2 className="text-4xl font-bold">{title}</h2>
-        <p className="mt-4 text-lg text-gray-600">{content}</p>
+      <div className="container w-full h-full max-w-5xl px-5">
+        {children}
       </div>
     </motion.section>
   );

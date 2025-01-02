@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-screen h-screen overflow-hidden flex items-center justify-center"
+      className="relative w-full h-screen overflow-hidden flex items-center justify-center"
     >
       {/* Background with parallax */}
       <div

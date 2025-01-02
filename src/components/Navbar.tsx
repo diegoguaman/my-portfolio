@@ -35,8 +35,8 @@ const Header: React.FC = () => {
       }`}
       //style={isScrolledPastHero ? { backgroundColor: "#7B9EA4" } : undefined}
     >
-      <div className="max-w-5xl mx-auto px-4">
-        <nav className="container mx-auto flex justify-between items-center p-4 text-xs">
+      <div className="max-w-5xl mx-auto">
+        <nav className="container mx-auto flex justify-between items-center p-5 text-xs">
           <Link
             to="hero"
             smooth={true}
