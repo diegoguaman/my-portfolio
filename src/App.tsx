@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./components/Navbar";
-import Section from "./components/Section";
+import Section from "./components/Section/Section";
 import HeroSection from "./components/HeroSection";
-import AboutMeSection from "./components/AboutMeSection";
+import AboutMeSection from "./components/Section/AboutMeSection";
 
 const App: React.FC = () => {
   return (
@@ -14,9 +14,6 @@ const App: React.FC = () => {
 
         {/* Secciones */}
         <HeroSection />
-        <Section id="about" bgColor="bg-gray-100">
-          <AboutMeSection />
-        </Section>
         <Section id="about" bgColor="bg-gray-100">
           <AboutMeSection />
         </Section>

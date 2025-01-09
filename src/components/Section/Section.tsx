@@ -11,7 +11,7 @@ const Section: React.FC<SectionProps> = ({ id, bgColor, children }) => {
   return (
     <motion.section
       id={id}
-      className={`h-96 flex items-center justify-center ${bgColor || "bg-gray-300"}`}
+      className={`min-h-screen flex items-center justify-center ${bgColor || "bg-gray-300"}`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
