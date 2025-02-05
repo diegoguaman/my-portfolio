@@ -3,6 +3,8 @@ import Header from "./components/Navbar";
 import Section from "./components/Section/Section";
 import HeroSection from "./components/HeroSection";
 import AboutMeSection from "./components/Section/AboutMeSection";
+import BackToUpButton from "./components/BackToUpButton";
+import ContactForm from "./components/ContactForm";
 
 const App: React.FC = () => {
   return (
@@ -14,8 +16,12 @@ const App: React.FC = () => {
 
         {/* Secciones */}
         <HeroSection />
-        <Section id="about" bgColor="bg-gray-100">
+        <Section id="about" bgColor="bg-white">
           <AboutMeSection />
+        </Section>
+        <BackToUpButton />
+        <Section id="contact" bgColor="bg-gray-100">
+          <ContactForm />
         </Section>
       </div>
       

@@ -4,7 +4,7 @@ interface SectionSubTitleProps{
 }
 
 const SectionSubTitle:React.FC<SectionSubTitleProps> = ({subTitle}) => {
-  return <h3 className='text-lg'>{subTitle}</h3>
+  return <h3 className='text-lg mt-4 mb-4'>{subTitle}</h3>
 };
 
 export default SectionSubTitle;

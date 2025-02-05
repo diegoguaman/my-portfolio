@@ -5,7 +5,7 @@ interface ButtonProps {
   buttonText: string;
   bgColor: string;
 }
-const ButtonLink: React.FC<ButtonProps> = ({ buttonText, bgColor }) => {
+const ButtonLink: React.FC<ButtonProps> = ({ buttonText, bgColor}) => {
   return (
     <Link
       to="hero"
