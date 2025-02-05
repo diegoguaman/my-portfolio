@@ -13,7 +13,9 @@ const ContactForm: React.FC = () => {
 
   const inputClass = "w-full p-2 border border-gray-300";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -24,34 +26,38 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2x1 mx-auto p-8 bg-white shadow-lg">
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-xl mx-auto p-8 bg-white shadow-lg"
+    >
       <SectionTitle title="Got Ideas? I've got the skills." />
       <SectionTitle title="Let's team up." />
       <SectionSubTitle subTitle="Tell me more about yourself and what you're got in mind." />
-      <div className="mb-4">
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className={inputClass}
-          placeholder="Your Name..."
-          required
-        />
-      </div>
+      <div className="w-full flex items-center justify-between">
+        <div className="w-1/2 mb-4 mr-4">
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={inputClass}
+            placeholder="Your Name..."
+            required
+          />
+        </div>
 
-      <div className="mb-4">
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className={inputClass}
-          placeholder="Your Email..."
-          required
-        />
+        <div className="w-1/2 mb-4">
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={inputClass}
+            placeholder="Your Email..."
+            required
+          />
+        </div>
       </div>
-
       <div className="mb-4">
         <input
           type="text"
