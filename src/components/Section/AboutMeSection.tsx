@@ -16,9 +16,13 @@ const AboutMeSection:React.FC = () => {
       </div>
       <div className='flex-1 flex flex-col justify-between max-w-lg ms-8 shadow-x1 z-10'>
         <SectionTitle  title="About Me"/>
-        <SectionSubTitle subTitle='UI/UX Designer & Web Developer' />
-        <SectionText text="I'm Kalvin Doe Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book."/>
-        <SectionText text='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using'/>
+        <SectionSubTitle subTitle='Full Stack Web Developer' />
+        <SectionText>
+          I am a developer with experience in <strong>React, Node.js, Express, and MongoDB</strong>, passionate about building scalable and optimized applications. Currently, I am expanding my knowledge in <strong> Docker, TypeScript, React Native, and FastAPI</strong>, exploring hexagonal architecture and agile methodologies. I am motivated by solving problems, optimizing code, and constantly learning, always seeking innovative and efficient solutions. Additionally, I enjoy teamwork, participating in <strong> sprints, code reviews, and agile methodologies</strong>, where communication and shared learning are key.
+        </SectionText>
+        <SectionText >
+          Beyond the code, I am a curious and enthusiastic person, always in search of new experiences. I am passionate about live music, cinema, and discovering special places that inspire me. I believe that creativity and technology go hand in hand, and I find in my hobbies a source of fresh ideas to apply in my work. I am always ready to take on new challenges, grow professionally, and add value to innovative projects.
+        </SectionText>
         <div className='flex'>
         <ButtonLink buttonText='Download CV' bgColor='' />
         </div>

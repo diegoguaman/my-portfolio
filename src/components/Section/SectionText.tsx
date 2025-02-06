@@ -1,10 +1,10 @@
 import React from 'react';
 
 interface SectionTextProps {
-  text: string;
+  children: React.ReactNode;
 }
-const SectionText:React.FC<SectionTextProps> = ({text}) => {
-  return <p className='mt-3 text-sm'>{text}</p>
+const SectionText:React.FC<SectionTextProps> = ({children}) => {
+  return <p className='mb-3 text-sm'>{children}</p>
 };
 
 export default SectionText;
