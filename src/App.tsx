@@ -6,6 +6,7 @@ import AboutMeSection from "./components/Section/AboutMeSection";
 import BackToUpButton from "./components/BackToUpButton";
 import ContactForm from "./components/ContactForm";
 import SkillsSection from "./components/Section/SkillsSection";
+import ProyectsSection from "./components/Section/ProyectsSection";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,9 @@ const App: React.FC = () => {
         <BackToUpButton />
         <Section id="skills" bgColor="bg-gray-100">
           <SkillsSection />
+        </Section>
+        <Section id="projects" bgColor="bg-white">
+          <ProyectsSection />
         </Section>
         <Section id="contact" bgColor="bg-gray-100">
           <ContactForm />
