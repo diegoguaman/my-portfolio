@@ -51,45 +51,20 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
         tabIndex={-1}
         ref={modalRef}
         aria-modal="true"
-        className="bg-white rounded-lg overflow-hidden relative mt-12 mx-4 max-w-3xl w-3/4 p-6 focus:outline-none shadow-xl"
+        className="bg-white rounded-lg overflow-hidden relative mt-12 mx-4 max-w-3xl w-3/4 px-16 py-12 focus:outline-none shadow-xl"
         onClick={stopPropagation}
       >
         {/* Botón de cerrar */}
         <button
           type="button"
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 focus:outline-none"
+          className="absolute top-4 right-4 text-gray-500 hover:text-black focus:outline-none"
           onClick={onClose}
           aria-label="Cerrar modal"
         >
           ✕
         </button>
 
-        {/* ---------------------- */}
-        {/* 1. Barra de enlaces  */}
-        {/* ---------------------- */}
-        <div className="flex flex-wrap justify-center gap-4 mb-6">
-          {/* Botón: Ver app en Vercel */}
-          <ButtonLink
-            buttonText="Ver App"
-            bgColor="bg-green-600"
-            href={remoteUrl}
-            Icon={FaExternalLinkAlt}
-          />
-          {/* Botón: Repositorio Front-end */}
-          <ButtonLink
-            buttonText="Front-end"
-            bgColor="bg-gray-800"
-            href={repoFront}
-            Icon={FaGithub}
-          />
-          {/* Botón: Repositorio Back-end */}
-          <ButtonLink
-            buttonText="Back-end"
-            bgColor="bg-gray-800"
-            href={repoBack}
-            Icon={FaGithub}
-          />
-        </div>
+        
 
         {/* ---------------------- */}
         {/* 2. Título del proyecto */}
@@ -113,10 +88,37 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           />
         </div>
 
+        {/* ---------------------- */}
+        {/* 1. Barra de enlaces  */}
+        {/* ---------------------- */}
+        <div className="flex flex-wrap justify-center gap-4 mb-6">
+          {/* Botón: Ver app en Vercel */}
+          <ButtonLink
+            buttonText="Ver App"
+            bgColor="bg-green-600"
+            href={remoteUrl}
+            Icon={FaExternalLinkAlt}
+          />
+          {/* Botón: Repositorio Front-end */}
+          <ButtonLink
+            buttonText="Front-end"
+            bgColor="bg-back"
+            href={repoFront}
+            Icon={FaGithub}
+          />
+          {/* Botón: Repositorio Back-end */}
+          <ButtonLink
+            buttonText="Back-end"
+            bgColor="bg-back"
+            href={repoBack}
+            Icon={FaGithub}
+          />
+        </div>
+
         {/* --------------------------- */}
         {/* 4. Contenido tipo blog     */}
         {/* --------------------------- */}
-        <div className="prose prose-lg max-w-none mb-6 text-left">
+        <div className="prose prose-lg max-w-none mb-6 text-justify">
           {/* 
             Dividimos el texto en párrafos. 
             La clase `prose` (con el plugin @tailwindcss/typography) aplica estilos de blog legibles.
