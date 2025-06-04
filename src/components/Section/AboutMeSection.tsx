@@ -24,7 +24,7 @@ const AboutMeSection:React.FC = () => {
           Beyond the code, I am a curious and enthusiastic person, always in search of new experiences. I am passionate about live music, cinema, and discovering special places that inspire me. I believe that creativity and technology go hand in hand, and I find in my hobbies a source of fresh ideas to apply in my work. I am always ready to take on new challenges, grow professionally, and add value to innovative projects.
         </SectionText>
         <div className='flex'>
-        <ButtonLink buttonText='Download CV' bgColor='' />
+        <ButtonLink buttonText='Download CV' bgColor='' href='https://res.cloudinary.com/dgtbm9skf/image/upload/v1748843515/Diego%20Guaman%20Medina%20CV.pdf' />
         </div>
       </div> 
     </div>
