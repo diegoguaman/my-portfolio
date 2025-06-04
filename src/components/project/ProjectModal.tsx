@@ -57,7 +57,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
         {/* Botón de cerrar */}
         <button
           type="button"
-          className="absolute top-4 right-4 text-gray-500 hover:text-black focus:outline-none"
+          className="absolute top-6 right-10 text-back text-lg font-black border-none hover:text-xl focus:outline-none focus:ring-0 focus:ring-transparent"
           onClick={onClose}
           aria-label="Cerrar modal"
         >

@@ -15,7 +15,7 @@ const ButtonLink: React.FC<ButtonProps> = ({ buttonText, bgColor, href, Icon}) =
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`px-6 py-3 ${bgColor || "bg-back"} rounded-lg text-center text-white uppercase cursor-pointer border-2 border-back hover:text-back hover:bg-white transition duration-300 ease-in-out`}
+        className={`px-6 py-3 ${bgColor || "bg-back"} rounded-lg text-center text-white uppercase cursor-pointer border-2 border-back hover:text-back hover:bg-white transition duration-400 ease-in-out`}
       >
         {buttonText}
       </a>
