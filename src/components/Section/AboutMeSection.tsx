@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 import SectionText from './SectionText';
 import SectionSubTitle from './SectionSubTitle';
 import ButtonLink from '../ButtonLink';
-
+import image from './../../assets/images/aboutMe.png';
 
 const AboutMeSection:React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const AboutMeSection:React.FC = () => {
       <div className="flex-1 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://res.cloudinary.com/dgtbm9skf/image/upload/v1735128334/fondo_tffm9a.jpg')",
+            `url(${image})`,
         }}>
       </div>
       <div className='flex-1 flex flex-col justify-between max-w-lg ms-8 shadow-x1 z-10'>

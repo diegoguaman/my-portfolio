@@ -1,12 +1,14 @@
 import React from "react";
+import { IconType } from "react-icons";
 import { Link } from "react-scroll";
 
 interface ButtonProps {
   buttonText: string;
   bgColor: string;
-  href?: string; 
+  href?: string;
+  Icon?: IconType;
 }
-const ButtonLink: React.FC<ButtonProps> = ({ buttonText, bgColor, href}) => {
+const ButtonLink: React.FC<ButtonProps> = ({ buttonText, bgColor, href, Icon}) => {
   if (href) {
     return (
       <a
@@ -28,6 +30,7 @@ const ButtonLink: React.FC<ButtonProps> = ({ buttonText, bgColor, href}) => {
         bgColor || "bg-back"
       } rounded-lg text-center text-white uppercase cursor-pointer border-2 border-back hover:text-back hover:bg-white transition duration-300 ease-in-out`}
     >
+      {Icon && <Icon size={18} />}
         {buttonText}
       
     </Link>
