@@ -4,7 +4,7 @@ import useActiveSection from "../hooks/useActiveSection";
 
 const Header: React.FC = () => {
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
-  const sectionIds = ["about", "skills", "projects", "contact"];
+  const sectionIds = ["acerca de", "tecnologías", "proyectos", "contacto"];
   const activeSection = useActiveSection(sectionIds, isScrolledPastHero);
   const hoverClass = "hover:text-hover cursor-pointer";
 
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         setIsScrolledPastHero(!entry.isIntersecting);
       },
       //{ threshold: 0.5 }  Cambia cuando el 50% de la sección es visible
-      { rootMargin: `-${document.querySelector("header")?.clientHeight || 0}px 0px 0px 0px` }
+      { rootMargin: `-${document.querySelector("header")?.clientHeight ?? 0}px 0px 0px 0px` }
     );
 
     observer.observe(heroSection);
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
             duration={500}
             className={hoverClass}
           >
-            MY PORTFOLIO
+            DGM PORTFOLIO
           </Link>
           <ul className="flex gap-4">
           {sectionIds.map((id) => (

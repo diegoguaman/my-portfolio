@@ -20,8 +20,8 @@ const SkillsSection: React.FC = () => {
   const iconSkills = "w-16 md:w-20";
   return (
     <div className='flex flex-col min-h-[24rem] py-8 px-4 bg-gray-50 text-center'>
-      <SectionTitle title='Skills' />
-      <SectionSubTitle subTitle='Tools and Tecnologies I use' />
+      <SectionTitle title='Tecnologías' uppercase='uppercase' />
+      <SectionSubTitle subTitle='Herramientas y tecnologías que utilizo en mi día a día y en mis proyectos' />
       <div className='mt-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center'>
           <img className={iconSkills} src={reactIcon} alt="React" />
           <img className={iconSkills} src={gitIcon} alt="Git" />

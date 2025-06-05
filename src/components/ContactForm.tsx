@@ -30,9 +30,11 @@ const ContactForm: React.FC = () => {
       onSubmit={handleSubmit}
       className="max-w-xl mx-auto p-8 bg-white shadow-lg"
     >
-      <SectionTitle title="Got Ideas? I've got the skills." />
-      <SectionTitle title="Let's team up." />
-      <SectionSubTitle subTitle="Tell me more about yourself and what you're got in mind." />
+      {/*<SectionTitle title="Got Ideas? I've got the skills." />*/}
+      <SectionTitle title="Tienes una Idea?" />
+      {/* <SectionTitle title=" Yo tengo las habilidades!." /> */}
+      <SectionTitle title="Vamos a trabajar juntos." />
+      <SectionSubTitle subTitle="Cuéntame más sobre ti y lo que tienes en mente." />
       <div className="w-full flex items-center justify-between">
         <div className="w-1/2 mb-4 mr-4">
           <input
@@ -41,7 +43,7 @@ const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             className={inputClass}
-            placeholder="Your Name..."
+            placeholder="Tu nombre..."
             required
           />
         </div>
@@ -53,7 +55,7 @@ const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             className={inputClass}
-            placeholder="Your Email..."
+            placeholder="Tu email..."
             required
           />
         </div>
@@ -65,7 +67,7 @@ const ContactForm: React.FC = () => {
           value={formData.subject}
           onChange={handleChange}
           className={inputClass}
-          placeholder="Subject..."
+          placeholder="Asunto..."
           required
         />
       </div>
@@ -76,12 +78,12 @@ const ContactForm: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 h-32 resize-none"
-          placeholder="Your Message..."
+          placeholder="Tu mensaje..."
           required
         />
       </div>
       <div className="mb-4">
-        <ButtonLink buttonText="Send Message" bgColor="bg-back" />
+        <ButtonLink buttonText="Enviar Mensaje" bgColor="bg-back" />
       </div>
     </form>
   );

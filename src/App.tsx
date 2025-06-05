@@ -18,17 +18,17 @@ const App: React.FC = () => {
 
         {/* Secciones */}
         <HeroSection />
-        <Section id="about" bgColor="bg-white">
+        <Section id="acerca de" bgColor="bg-white">
           <AboutMeSection />
         </Section>
         <BackToUpButton />
-        <Section id="skills" bgColor="bg-gray-100">
+        <Section id="tecnologías" bgColor="bg-gray-100">
           <SkillsSection />
         </Section>
-        <Section id="projects" bgColor="bg-white">
+        <Section id="proyectos" bgColor="bg-white">
           <ProjectsSection />
         </Section>
-        <Section id="contact" bgColor="bg-gray-100">
+        <Section id="contacto" bgColor="bg-gray-100">
           <ContactForm />
         </Section>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollButton from "./ScrollButton";
 
-const roles = ["React", "Node", "Tailwind"];
+const roles = [ "React", "JavaScript", "Node", "Docker", "AWS", "TypeScript", "Tailwind", "Next", "MongoDB", "PostgreSQL"];
 const textClass = "text-3xl font-light font-body tracking-widest";
 
 const HeroSection: React.FC = () => {
@@ -45,12 +45,12 @@ const HeroSection: React.FC = () => {
       {/* Foreground content */}
       <div className="relative z-10 text-white flex flex-col items-start px-8">
         <h1 className="text-6xl font-bold font-title tracking-tight mb-4">
-          Hi! I'm Diego.
+          Hola! Soy Diego.
         </h1>
         <p className={textClass}>Creative FullStack Developer</p>
 
         <div className="flex items-center mt-4">
-          <span className={textClass}>Specialized in</span>
+          <span className={textClass}>Especializado en</span>
           <motion.div
             className="ml-2 overflow-hidden h-8 flex items-center"
             initial={{ y: "20%", opacity: 0 }}

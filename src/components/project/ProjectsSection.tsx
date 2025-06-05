@@ -16,7 +16,7 @@ const ProyectsSection: React.FC = () => {
   };
   return (
     <div className='relative flex flex-col min-h-[24rem] py-8 px-4 text-center'>
-      <SectionTitle title='Projects' />
+      <SectionTitle title='Proyectos' uppercase='uppercase' />
 
       <div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
         {projects.map((project) => (
