@@ -7,6 +7,7 @@ import BackToUpButton from "./components/BackToUpButton";
 import ContactForm from "./components/ContactForm";
 import SkillsSection from "./components/Section/SkillsSection";
 import ProjectsSection from "./components/project/ProjectsSection";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         <Section id="contacto" bgColor="bg-gray-100">
           <ContactForm />
         </Section>
+        <Footer />
       </div>
       
     </div>
