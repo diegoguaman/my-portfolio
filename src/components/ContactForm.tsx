@@ -11,7 +11,7 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
-  const inputClass = "w-full p-2 border border-gray-300";
+  const inputClass = "w-full p-2 border border-gray-300 bg-white dark:bg-white";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -35,8 +35,8 @@ const ContactForm: React.FC = () => {
       {/* <SectionTitle title=" Yo tengo las habilidades!." /> */}
       <SectionTitle title="Vamos a trabajar juntos." />
       <SectionSubTitle subTitle="Cuéntame más sobre ti y lo que tienes en mente." />
-      <div className="w-full flex items-center justify-between">
-        <div className="w-1/2 mb-4 mr-4">
+      <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <div className="w-full sm:w-1/2 mb-4 mr-4">
           <input
             type="text"
             name="name"
@@ -48,7 +48,7 @@ const ContactForm: React.FC = () => {
           />
         </div>
 
-        <div className="w-1/2 mb-4">
+        <div className="w-full sm:w-1/2 mb-4">
           <input
             type="email"
             name="email"
@@ -77,7 +77,7 @@ const ContactForm: React.FC = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 h-32 resize-none"
+          className="w-full p-2 border border-gray-300 h-32 resize-none bg-white dark:bg-white"
           placeholder="Tu mensaje..."
           required
         />
