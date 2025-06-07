@@ -66,9 +66,11 @@ const Header: React.FC = () => {
               absolute top-full left-0 w-full bg-back 
               transform transition:transform duration-400 ease-in-out 
               md:static md:flex md:items-center md:transform-none md:bg-transparent
+              justify-end
               ${menuOpen 
                 ? "translate-y-0 pointer-events-auto" 
                 : "-translate-y-[200%] pointer-events-none"}
+              md:pointer-events-auto
             `}>
             {sectionIds.map((id) => (
               <li key={id} className="border-b border-white md:border-none">

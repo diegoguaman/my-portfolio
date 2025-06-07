@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
         </div>
         {/* Botón debajo del texto */}
         <div className="mt-14 h-16">
-          <ScrollButton targetSection="about" />
+          <ScrollButton targetSection="acerca de" />
         </div>
       </div>
     </section>
