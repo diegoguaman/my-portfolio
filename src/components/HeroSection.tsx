@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
       ></div>
 
       {/* Foreground content */}
-      <div className="relative z-10 text-white flex flex-col items-start px-8">
+      <div className="relative text-white flex flex-col items-start px-8">
         <h1 className="text-6xl font-bold font-title tracking-tight mb-4">
           Hola! Soy Diego.
         </h1>

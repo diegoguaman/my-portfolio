@@ -14,7 +14,7 @@ const AboutMeSection:React.FC = () => {
             `url(${image})`,
         }}>
       </div>
-      <div className='flex-1 flex flex-col justify-between max-w-lg ms-8 text-justify shadow-x1 z-10'>
+      <div className='flex-1 flex flex-col justify-between max-w-lg ms-8 text-justify shadow-x1'>
         <SectionTitle  title="Acerca De" uppercase='uppercase'/>
         <SectionSubTitle subTitle='Desarrollador web Full Stack ' />
         <SectionText>

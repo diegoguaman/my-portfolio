@@ -6,13 +6,24 @@ const useActiveSection = (sectionIds: string[], isScrolledPastHero: boolean) => 
   useEffect(() => {
     const observerOptions = {
       root: null,
-      threshold: 0.6, // Detecta cuando el 60% de la sección está visible
+      rootMargin: `-${document.querySelector("header")?.clientHeight ?? 0}px 0px 0px 0px`,
+      threshold: [0.6], // Detecta cuando el 60% de la sección está visible
     };
     const observer = new IntersectionObserver((entries) => {
-        const visibleSection = entries.find((entry) => entry.isIntersecting);
-        if (visibleSection && isScrolledPastHero) { // Verificamos isScrolledPastHero
-          setActiveSection(visibleSection.target.id);
-        }      
+      // Primero, encuentra todas las secciones aún intersectando
+      const intersecting = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      
+      if (intersecting.length > 0 && isScrolledPastHero) {
+        setActiveSection(intersecting[0].target.id);
+      } else if (!isScrolledPastHero) {
+        // Si volvemos al Hero, limpiamos
+        setActiveSection(null);
+      } else if (intersecting.length === 0) {
+        // Si ninguna sección está visible (por scroll intermedio), limpiamos
+        setActiveSection(null);
+      }     
     }, observerOptions);
 
     sectionIds.forEach((id) => {
@@ -22,14 +33,7 @@ const useActiveSection = (sectionIds: string[], isScrolledPastHero: boolean) => 
 
     return () => observer.disconnect();
   }, [sectionIds, isScrolledPastHero]);
-
-  // Resetear el estado si todavía no se ha hecho scroll más allá del Hero
-  useEffect(() => {
-        if (!isScrolledPastHero) {
-          setActiveSection(null);
-        }
-      }, [isScrolledPastHero]);
-
+  
   return activeSection;
 };
 
