@@ -43,19 +43,27 @@ const HeroSection: React.FC = () => {
       ></div>
 
       {/* Foreground content */}
-      <div className="relative text-white flex flex-col items-start px-8">
-        <h1 className="text-6xl font-bold font-title tracking-tight mb-4">
+      <div className="relative text-white flex flex-col justify-center sm:items-start px-8 text-center sm:text-left ">
+        <h1 className="text-6xl font-bold font-title tracking-tight mb-6">
           Hola! Soy Diego.
         </h1>
-        <p className={textClass}>Creative FullStack Developer</p>
+        <div className={textClass}>Creative FullStack <span className="block mt-4">Developer</span></div>
 
-        <div className="flex items-center mt-4">
-          <span className={textClass}>Especializado en</span>
+        <div className="
+          flex flex-col items-center justify-center sm:items-start mt-4
+          sm:flex-row sm:items-start">
+          <span className={`${textClass} `}>Especializado en</span>
           <motion.div
-            className="ml-2 overflow-hidden h-8 flex items-center"
-            initial={{ y: "20%", opacity: 0 }}
+            className="
+            w-auto
+            h-auto sm:h-8
+            mt-4
+            flex justify-center items-center
+            sm:mt-0 sm:items-center
+            sm:ml-2"
+            initial={{ y: "0%", opacity: 0 }}
             animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
           >
             <RoleSlider roles={roles} />
           </motion.div>
@@ -86,7 +94,7 @@ const RoleSlider: React.FC<RoleSliderProps> = ({ roles }) => {
 
   const variants = {
     enter: {
-      y: "50%",
+      y: "20%",
       opacity: 0,
     },
     center: {
@@ -94,13 +102,13 @@ const RoleSlider: React.FC<RoleSliderProps> = ({ roles }) => {
       opacity: 1,
     },
     exit: {
-      y: "-50%",
+      y: "-20%",
       opacity: 0,
     },
   };
 
   return (
-    <div className="overflow-hidden h-8 flex items-center">
+    <div className="h-auto min-h-10 flex items-center">
       <AnimatePresence mode="wait">
         <motion.div
           key={roles[index]}
@@ -109,7 +117,7 @@ const RoleSlider: React.FC<RoleSliderProps> = ({ roles }) => {
           animate="center"
           exit="exit"
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="absolute"
+          className="relative"
         >
           <p className="text-3xl font-bold font-body">{roles[index]}</p>
         </motion.div>
