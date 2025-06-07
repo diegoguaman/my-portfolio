@@ -10,7 +10,7 @@ const BackToUpButton: React.FC = () => {
     const handleScroll = () => {
       // Mostrar el botón si se ha hecho scroll más de 300px o se está en la sección 'skills'
       const scrollPosition = window.scrollY;
-      const skillsSection = document.getElementById("skills");
+      const skillsSection = document.getElementById("tecnologías");
 
       if (skillsSection) {
         const skillsRect = skillsSection.getBoundingClientRect();
@@ -35,13 +35,13 @@ const BackToUpButton: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.5 }}
-          className="fixed bottom-4 right-4 z-50"
+          className="fixed bottom-4 right-4 z-100"
         >
           <Link
             to="hero"
             smooth={true}
             duration={500}
-            className="flex justify-center items-center w-12 h-12 rounded-full bg-primary text-white shadow-lg cursor-pointer hover:bg-back hover:text-white transition-all duration-300"
+            className="flex justify-center items-center w-12 h-12 rounded-full bg-back text-white shadow-lg cursor-pointer hover:bg-white hover:text-back transition-all duration-300"
             aria-label="Back to Up"
           >
             <FaArrowUp className="text-xl" />
