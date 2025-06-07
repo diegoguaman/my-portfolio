@@ -7,14 +7,32 @@ import image from './../../assets/images/aboutMe.png';
 
 const AboutMeSection:React.FC = () => {
   return (
-    <div className='relative flex min-h-96'>
-      <div className="flex-1 bg-cover bg-center"
+    <div className='
+      flex flex-col mt-6 md:flex-row
+      min-h-[24rem]
+      md:min-h-96 '>
+      {/* Imagen de fonde */}
+      <div className="
+        w-full md:w-1/2                    // ¡Cambio! full width en móvil, mitad en md+
+        h-64 md:h-auto                    // ¡Cambio! altura fija en móvil, auto en md+
+        bg-cover md:bg-center"
         style={{
           backgroundImage:
             `url(${image})`,
         }}>
       </div>
-      <div className='flex-1 flex flex-col justify-between max-w-lg ms-8 text-justify shadow-x1'>
+
+      {/* Contenedor de texto */}
+      <div className='
+        w-full md:w-1/2
+        flex flex-col justify-between
+        items-center
+        p-6 md:p-8
+        space-y-4
+        text-justify
+        shadow-xl
+        bg-white
+        md:items-start'>
         <SectionTitle  title="Acerca De" uppercase='uppercase'/>
         <SectionSubTitle subTitle='Desarrollador web Full Stack ' />
         <SectionText>
