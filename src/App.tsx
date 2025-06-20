@@ -8,6 +8,7 @@ import ContactForm from "./components/ContactForm";
 import SkillsSection from "./components/Section/SkillsSection";
 import ProjectsSection from "./components/project/ProjectsSection";
 import Footer from "./components/Footer";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 
 const App: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const App: React.FC = () => {
           <ContactForm />
         </Section>
         <Footer />
+        <CookieConsentBanner />
       </div>
       
     </div>
