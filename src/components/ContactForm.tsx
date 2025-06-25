@@ -1,33 +1,38 @@
-import React, { useState } from "react";
-import ButtonLink from "./ButtonLink";
+import React from "react";
 import SectionTitle from "./Section/SectionTitle";
 import SectionSubTitle from "./Section/SectionSubTitle";
+import { useSubmitForm } from "../hooks/useSubmitForm";
+import SubmitFeedback from "./SubmitFeedback";
+import {
+  ContactFormData,
+  ContactFormSchema,
+} from "../schema/contactForm.schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormField } from "./FormField";
+import { TextAreaField } from "./TextAreaField";
+import { SubmitButton } from "./SubmitButton";
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(ContactFormSchema),
   });
+  const mutation = useSubmitForm();
 
-  const inputClass = "w-full p-2 border border-gray-300 bg-white dark:bg-white";
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Submitted:", formData);
-    // Aquí puedes agregar la lógica para enviar el formulario, como una petición a una API
+  const onSubmit = (data: ContactFormData) => {
+    mutation.mutate(data, {
+      onSuccess: () => reset(),
+    });
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="max-w-xl mx-auto p-8 bg-white shadow-lg"
     >
       {/*<SectionTitle title="Got Ideas? I've got the skills." />*/}
@@ -37,54 +42,53 @@ const ContactForm: React.FC = () => {
       <SectionSubTitle subTitle="Cuéntame más sobre ti y lo que tienes en mente." />
       <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between">
         <div className="w-full sm:w-1/2 mb-4 mr-4">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className={inputClass}
+          <FormField
+            label="Nombre"
             placeholder="Tu nombre..."
-            required
+            {...register("name")}
+            error={errors.name?.message}
           />
         </div>
 
         <div className="w-full sm:w-1/2 mb-4">
-          <input
+          <FormField
+            label="Email"
             type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={inputClass}
             placeholder="Tu email..."
-            required
+            {...register("email")}
+            error={errors.email?.message}
           />
         </div>
       </div>
       <div className="mb-4">
-        <input
-          type="text"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-          className={inputClass}
+        <FormField
+          label="Asunto"
           placeholder="Asunto..."
-          required
+          {...register("subject")}
+          error={errors.subject?.message}
         />
       </div>
 
       <div className="mb-6">
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-2 border border-gray-300 h-32 resize-none bg-white dark:bg-white"
+        <TextAreaField
+          label="Mensaje"
           placeholder="Tu mensaje..."
-          required
+          {...register("message")}
+          error={errors.message?.message}
         />
       </div>
       <div className="mb-4">
-        <ButtonLink buttonText="Enviar Mensaje" bgColor="bg-back" />
+        <SubmitButton disabled={mutation.isPending}>
+          {mutation.isPending ? "Enviando..." : "Enviar Mensaje"}
+        </SubmitButton>
       </div>
+      {/* Aquí mostramos el feedback de envío */}
+      <SubmitFeedback
+        isPending={mutation.isPending}
+        isSuccess={mutation.isSuccess}
+        isError={mutation.isError}
+        errorMessage={mutation.error?.message}
+      />
     </form>
   );
 };

@@ -9,10 +9,18 @@ import SkillsSection from "./components/Section/SkillsSection";
 import ProjectsSection from "./components/project/ProjectsSection";
 import Footer from "./components/Footer";
 import CookieConsentBanner from "./components/CookieConsentBanner";
+import { Toaster } from "react-hot-toast";
 
 const App: React.FC = () => {
   return (
     <div className="scroll-smooth">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: { duration: 4000 },
+          error:   { duration: 6000 },
+        }}
+      />
       <div className="w-screen overflow-hidden">
 
         {/* Header */}
