@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Cookies from "js-cookie";
+import { useCookieConsent } from "../hooks/useCookieConsent";
+import { CookieConsentDto } from "../types";
 
 const BUTTON_CLASS = `px-4 py-2 rounded-md uppercase font-semibold 
   border-2 border-back transition duration-300 ease-in-out 
   focus:outline-none focus:ring-0`;
 const CookieConsentBanner: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const consentMutation = useCookieConsent();
 
   // Al montar, comprobamos si ya hay consentimiento
   useEffect(() => {
@@ -19,11 +22,13 @@ const CookieConsentBanner: React.FC = () => {
   }, []);
 
   const handleChoice = (acceptAll: boolean) => {
-    const payload = {
-      necessary: true,
-      analytics: acceptAll,
-      marketing: acceptAll,
-    };
+    const payload: CookieConsentDto[] = [
+      { cookieName: 'necessary', consentGiven: true },
+      { cookieName: 'analytics', consentGiven: acceptAll },
+      { cookieName: 'marketing', consentGiven: acceptAll },
+    ];
+    // Envia cada preferencia al back
+    payload.forEach(dto => consentMutation.mutate(dto));
     // Guardar en cookie 1 año, sameSite Lax y secure en prod
     Cookies.set("cookie_consent", JSON.stringify(payload), {
       expires: 365,

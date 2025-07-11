@@ -5,3 +5,7 @@ export interface SubmitFormDto {
   message: string;
   cookies?: Record<string, string>;
 }
+export interface CookieConsentDto {
+  cookieName: string;
+  consentGiven: boolean;
+}
