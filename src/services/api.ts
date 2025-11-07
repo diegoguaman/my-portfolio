@@ -1,24 +1,37 @@
-// src/services/api.ts
 import axios, { AxiosError } from "axios";
+import { env } from "../config/env.config";
 
+/**
+ * Axios instance configured with base URL and default headers
+ */
 export const api = axios.create({
-  baseURL: import.meta.env.REACT_APP_API_URL ?? "http://localhost:3000/api",
+  baseURL: env.apiUrl,
   headers: { "Content-Type": "application/json" },
+  timeout: 10000,
 });
 
-// Interceptor de respuesta para errores
+/**
+ * Response interceptor for error handling
+ * Normalizes error responses for consistent error handling
+ */
 api.interceptors.response.use(
-  (res) => res,
-  (err: AxiosError) => {
-    const message =
-      err.response?.data &&
-      typeof err.response.data === "object" &&
-      "message" in err.response.data
-        ? (err.response.data.message as string)
-        : err.message;
-    // Reemplazamos el mensaje en err para que los hooks lo reciban
-    return Promise.reject(
-      new AxiosError(message, err.code, err.config, err.request, err.response)
+  (response) => response,
+  (error: AxiosError) => {
+    let message = error.message;
+    if (
+      error.response?.data &&
+      typeof error.response.data === "object" &&
+      "message" in error.response.data
+    ) {
+      message = String(error.response.data.message);
+    }
+    const normalizedError = new AxiosError(
+      message,
+      error.code,
+      error.config,
+      error.request,
+      error.response
     );
+    return Promise.reject(normalizedError);
   }
 );

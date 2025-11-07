@@ -1,15 +1,5 @@
 import image from "./../assets/images/parkify-inicio.png";
-
-export interface Project {
-  id: number;
-  title: string;
-  image: string;
-  remoteUrl: string;
-  repoFront: string;
-  repoBack: string;
-  longDescription: string;
-  thumbnailUrl?: string;
-}
+import type { Project } from "../models";
 
 export const projects: Project[] = [
   {

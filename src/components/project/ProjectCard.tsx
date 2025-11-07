@@ -1,11 +1,5 @@
-// src/components/ProjectCard.tsx
 import React from "react";
-import { Project } from "../../data/projectsData";
-
-interface ProjectCardProps {
-  project: Project;
-  onViewDetails: (project: Project) => void;
-}
+import type { ProjectCardProps } from "../../models";
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   project,

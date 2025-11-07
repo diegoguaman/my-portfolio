@@ -1,11 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-scroll";
 import useActiveSection from "../hooks/useActiveSection";
+import { SECTION_IDS, APP_CONFIG, NAVIGATION_CONFIG } from "../config/constants";
 
 const Header: React.FC = () => {
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const sectionIds = ["acerca de", "tecnologías", "proyectos", "contacto"];
+  const sectionIds = [
+    SECTION_IDS.about,
+    SECTION_IDS.skills,
+    SECTION_IDS.projects,
+    SECTION_IDS.contact,
+  ];
   const activeSection = useActiveSection(sectionIds, isScrolledPastHero);
   const hoverClass = "hover:text-hover cursor-pointer";
 
@@ -58,12 +64,12 @@ const Header: React.FC = () => {
         <nav className="mx-auto flex justify-between items-center px-10 py-6 text-xs md:px-8 md:py-5 whitespace-nowrap">
           {/* Logo o nombre del portfolio */}
           <Link
-            to="hero"
+            to={SECTION_IDS.hero}
             smooth={true}
-            duration={500}
+            duration={NAVIGATION_CONFIG.smoothScrollDuration}
             className={`${hoverClass} font-light text-lg md:text-xl`}
           >
-            DGM DEV
+            {APP_CONFIG.name}
           </Link>
 
           {/* Botón de hamburguesa: solo visible en pantallas < md */}
@@ -95,7 +101,7 @@ const Header: React.FC = () => {
                 <Link
                   to={id}
                   smooth={true}
-                  duration={500}
+                  duration={NAVIGATION_CONFIG.smoothScrollDuration}
                   className={`block px-5 py-3 text-center md:inline-block md:px-4 ${hoverClass} 
                   ${ activeSection === id ? `text-hover font-medium` : "" }
                   `}
