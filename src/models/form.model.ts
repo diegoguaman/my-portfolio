@@ -16,6 +16,7 @@ export interface FormSubmissionResponse {
 }
 
 export interface CookieConsentDto {
+  anonymousId: string;
   cookieName: string;
   consentGiven: boolean;
 }

@@ -1,5 +1,6 @@
-import axios, { AxiosError } from "axios";
+import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { env } from "../config/env.config";
+import { getOrCreateAnonymousId } from "../utils/anonymousId";
 
 /**
  * Axios instance configured with base URL and default headers
@@ -9,6 +10,21 @@ export const api = axios.create({
   headers: { "Content-Type": "application/json" },
   timeout: 10000,
 });
+
+/**
+ * Request interceptor to add anonymous ID header
+ * Ensures all requests include the x-anonymous-id header
+ */
+api.interceptors.request.use(
+  (config: InternalAxiosRequestConfig) => {
+    const anonymousId = getOrCreateAnonymousId();
+    config.headers.set('x-anonymous-id', anonymousId);
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 /**
  * Response interceptor for error handling

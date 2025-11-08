@@ -85,3 +85,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Ajuste para el widget de ElevenLabs - moverlo más arriba para no tapar el banner de cookies */
+elevenlabs-convai {
+  bottom: 120px !important;
+}
+
+/* Ajuste cuando el banner de cookies no esté visible */
+@media (min-width: 768px) {
+  elevenlabs-convai {
+    bottom: 60px !important;
+  }
+}
+
+/* En móviles, moverlo aún más arriba */
+@media (max-width: 640px) {
+  elevenlabs-convai {
+    bottom: 60px !important;
+  }
+}

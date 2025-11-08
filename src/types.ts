@@ -6,6 +6,7 @@ export interface SubmitFormDto {
   cookies?: Record<string, string>;
 }
 export interface CookieConsentDto {
+  anonymousId: string;
   cookieName: string;
   consentGiven: boolean;
 }

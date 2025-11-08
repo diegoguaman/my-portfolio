@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Cookies from "js-cookie";
 import { useCookieConsent } from "../hooks/useCookieConsent";
 import { CookieConsentDto } from "../types";
+import { getOrCreateAnonymousId } from "../utils/anonymousId";
 
 const BUTTON_CLASS = `px-4 py-2 rounded-md uppercase font-semibold 
-  border-2 border-back transition duration-300 ease-in-out 
+  border-2 border-back bg-white text-back 
+  hover:bg-back hover:text-white
+  transition duration-300 ease-in-out 
   focus:outline-none focus:ring-0`;
 const CookieConsentBanner: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -22,10 +25,11 @@ const CookieConsentBanner: React.FC = () => {
   }, []);
 
   const handleChoice = (acceptAll: boolean) => {
+    const anonymousId = getOrCreateAnonymousId();
     const payload: CookieConsentDto[] = [
-      { cookieName: 'necessary', consentGiven: true },
-      { cookieName: 'analytics', consentGiven: acceptAll },
-      { cookieName: 'marketing', consentGiven: acceptAll },
+      { anonymousId, cookieName: 'necessary', consentGiven: true },
+      { anonymousId, cookieName: 'analytics', consentGiven: acceptAll },
+      { anonymousId, cookieName: 'marketing', consentGiven: acceptAll },
     ];
     // Envia cada preferencia al back
     payload.forEach(dto => consentMutation.mutate(dto));
@@ -35,7 +39,6 @@ const CookieConsentBanner: React.FC = () => {
       sameSite: "Lax",
       secure: true,
     });
-    // Aquí podrías enviar al backend: POST /cookie-consent
     setVisible(false);
   };
 
@@ -65,13 +68,13 @@ const CookieConsentBanner: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-2">
             <button
               onClick={() => handleChoice(false)}
-              className={`${BUTTON_CLASS} bg-white text-back hover:bg-back hover:text-white`}
+              className={BUTTON_CLASS}
             >
               Rechazar todo
             </button>
             <button
               onClick={() => handleChoice(true)}
-              className={`${BUTTON_CLASS} text-white bg-back hover:bg-hover`}
+              className={BUTTON_CLASS}
             >
               Aceptar todo
             </button>
