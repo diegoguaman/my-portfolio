@@ -16,7 +16,7 @@ const ButtonLink: React.FC<ButtonProps> = ({
   Icon,
   disabled = false,
 }) => {
-  const baseClasses = `px-6 py-3 bg-${bgColor} rounded-lg text-center text-white uppercase cursor-pointer border-2 border-back hover:text-back hover:bg-white transition duration-300 ease-in-out`;
+  const baseClasses = `px-6 py-3 bg-${bgColor} rounded-lg text-center text-white uppercase cursor-pointer bg-back border-2 border-back hover:text-back hover:bg-white transition duration-300 ease-in-out`;
   const disabledClasses = disabled ? "opacity-50 pointer-events-none" : "";
   if (href) {
     return (
